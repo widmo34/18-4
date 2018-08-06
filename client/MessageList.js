@@ -4,7 +4,7 @@ import styles from './MessageList.css';
 
 
 const Message = props => (
-    <div className={styles.Message}>
+    <div className={styles.MessageList}>
         <strong>{props.form} : </strong>
         <span>{props.text}</span>
     </div>

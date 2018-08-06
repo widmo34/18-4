@@ -60,7 +60,7 @@ module.exports = (env) => {
     devServer: {
         proxy : {
             '/socket.io' : {
-                target: 'http://localhost:3000',
+                target: 'http://localhost:8080',
                 ws: true
             }
         }
