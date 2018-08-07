@@ -16,11 +16,11 @@ class App extends Component {
         super(props);
         this.state = {users: [], messages: [], text: '', name: ''}
     }
-
-    componentDidMount(){
+    
+    componentDidMount() {
         socket.on('message', message => this.messageReceive(message));
         socket.on('update', ({users}) => this.chatUpdate(users));
-    }
+      }
 
     messageReceive(message){
         const messages = [message, ...this.state.messages];
@@ -63,21 +63,24 @@ class App extends Component {
                 </div>    
 
                 <div className={styles.AppBody}>
-                    <UsersList users={this.state.users} />
+                        <UsersList users={this.state.users} />
                     <div className={styles.MessageWrapper}>
                         <MessageList messages={this.state.messages} />
                         <MessageForm onMessageSubmit={message => this.handleMessageSubmit(message)} 
                                      name={this.state.name}
+                                  
                         /> 
                     </div> 
                 </div>
-            </div>                   
+            </div>   
+                            
         )
     }
 
 
     renderUserForm(){
         return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
+      
     }
 
 

@@ -3,7 +3,7 @@ class UserService{
         this.users = [];
     }
 
-    getAllusers(){
+    getAllUsers(){
         return this.users;
     }
 

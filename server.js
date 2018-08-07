@@ -5,8 +5,8 @@ const socketIo = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-const UserService = require('./UserService')
-
+const UserService = require('./client/UserService')
+console.log(UserService);
 const userService = new UserService(); 
 
 
@@ -20,14 +20,15 @@ io.on('connection', function(socket){
     // miejsce dla funkcji, które zostaną wykonane po podłączeniu klienta
     // użytkownika, który pojawił się w aplikacji zapisujemy do serwisu trzymającego listę osób w czacie
     socket.on('join', function(name){
-        userService.addUser({
+            userService.addUser({
             id: socket.id,
             name
         });
 
         io.emit('update', {
-            users: userService.getAllusers(),
+            users: userService.getAllUsers(),
         });
+      
     });
 });
 

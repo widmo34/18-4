@@ -5,13 +5,14 @@ import styles from './UserForm.css';
 class UserForm extends Component {
     constructor(props){
         super(props);
-        this.state = {name : ''}
+        this.state = {name: ''}
     }
 
 
     handleSubmit(e){
         e.preventDefault();
         this.props.onUserSubmit(this.state.name);
+       
     }
 
     handleChange(e){

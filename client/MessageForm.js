@@ -15,7 +15,7 @@ class MessageForm extends Component{
             text: this.state.text,
         }
         this.props.onMessageSubmit(message);
-        this.setState({text: ''})
+        this.setState({text: ''});
     }
 
     
@@ -31,6 +31,7 @@ class MessageForm extends Component{
                  className={styles.MessageInput}
                  onChange={e => this.changeHandler(e)}
                  placeholder="Message"
+                 value={this.state.text}
                 />
             </form>
         )
